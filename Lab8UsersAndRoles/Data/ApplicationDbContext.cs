@@ -11,5 +11,7 @@ namespace Lab8UsersAndRoles.Data
         {
         }
         public DbSet<Lab8UsersAndRoles.Models.ApplicationRole> ApplicationRole { get; set; } = default!;
+        public DbSet<Lab8UsersAndRoles.Models.Product> Product { get; set; } = default!;
+        public DbSet<Lab8UsersAndRoles.Models.Cartitem> Cartitem { get; set; } = default!;
     }
 }

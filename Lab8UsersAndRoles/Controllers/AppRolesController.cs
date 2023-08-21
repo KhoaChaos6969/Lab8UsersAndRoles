@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Lab8UsersAndRoles.Data;
 using Lab8UsersAndRoles.Models;
 
-namespace Lab8UsersAndRoles
+namespace Lab8UsersAndRoles.Controllers
 {
     public class AppRolesController : Controller
     {
@@ -22,9 +22,9 @@ namespace Lab8UsersAndRoles
         // GET: AppRoles
         public async Task<IActionResult> Index()
         {
-              return _context.ApplicationRole != null ? 
-                          View(await _context.ApplicationRole.ToListAsync()) :
-                          Problem("Entity set 'ApplicationDbContext.ApplicationRole'  is null.");
+            return _context.ApplicationRole != null ?
+                        View(await _context.ApplicationRole.ToListAsync()) :
+                        Problem("Entity set 'ApplicationDbContext.ApplicationRole'  is null.");
         }
 
         // GET: AppRoles/Details/5
@@ -151,14 +151,14 @@ namespace Lab8UsersAndRoles
             {
                 _context.ApplicationRole.Remove(applicationRole);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool ApplicationRoleExists(string id)
         {
-          return (_context.ApplicationRole?.Any(e => e.Id == id)).GetValueOrDefault();
+            return (_context.ApplicationRole?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }
